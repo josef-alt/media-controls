@@ -1,7 +1,5 @@
 console.log('file opened');
 
-// wait for file to load
-document.addEventListener("DOMContentLoaded", function() {
 	console.log('loaded');
 	
 	// TODO find media element
@@ -14,4 +12,3 @@ document.addEventListener("DOMContentLoaded", function() {
 	});
 	
 	observer.observe(document.documentElement);
-});
