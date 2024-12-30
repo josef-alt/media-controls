@@ -15,3 +15,28 @@ const observer = new ResizeObserver(() => {
 });
 
 observer.observe(docElement);
+
+// adding keyboard controls
+document.addEventListener('keydown', function(event) {
+	switch(event.key) {
+		case 'ArrowLeft':
+			video.currentTime -= 5;
+			break;
+		case 'ArrowRight':
+			video.currentTime += 5;
+			break;
+		case 'j':
+			video.currentTime -= 10;
+			break;
+		case 'l':
+			video.currentTime += 10;
+			break;
+		case 'Space':
+			if(video.paused) {
+				video.play();
+			} else {
+				video.pause();
+			}
+			break;
+	}
+});
