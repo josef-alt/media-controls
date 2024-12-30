@@ -31,7 +31,7 @@ document.addEventListener('keydown', function(event) {
 		case 'l':
 			video.currentTime += 10;
 			break;
-		case 'Space':
+		case 'k':
 			if(video.paused) {
 				video.play();
 			} else {
