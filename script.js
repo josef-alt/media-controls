@@ -43,6 +43,12 @@ function bindControls() {
 					video.pause();
 				}
 				break;
+			case 'Home':
+				video.currentTime = 0;
+				break;
+			case 'End':
+				video.currentTime = video.duration;
+				break;
 		}
 	});
 }
