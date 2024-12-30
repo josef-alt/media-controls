@@ -1,1 +1,2 @@
 # controls
+This is probably not going to be a very advanced extension, but rather an opportunity to do something a bit different. I find that the browser is the most convenient way for one-off playing audio and video files when I just want to check something quickly. However, the built in controls leave a little to be desired, with limited accuracy on the controls and a lack of forward/backward navigation (which is offered in FireFox). While I don't know anything about Chrome's media player, hopefully I will be able to modify the behavior of the native media player.
