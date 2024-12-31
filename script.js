@@ -49,11 +49,21 @@ function bindControls() {
 			case 'End':
 				video.currentTime = video.duration;
 				break;
-			default:
+			case '0':
+			case '1':
+			case '2':
+			case '3':
+			case '4':
+			case '5':
+			case '6':
+			case '7':
+			case '8':
+			case '9':
 				const pressed = event.key.charCodeAt(0) - 48;
 				if(pressed >= 0 && pressed <= 9) {
 					video.currentTime = video.duration * pressed / 10;
 				}
+				break;
 		}
 	});
 }
