@@ -49,6 +49,11 @@ function bindControls() {
 			case 'End':
 				video.currentTime = video.duration;
 				break;
+			default:
+				const pressed = event.key.charCodeAt(0) - 48;
+				if(pressed >= 0 && pressed <= 9) {
+					video.currentTime = video.duration * pressed / 10;
+				}
 		}
 	});
 }
