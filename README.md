@@ -11,3 +11,4 @@ Keyboard navigation based on YouTube or FireFox that for some reason Chrome does
 * 10-second navigation using J or L
 * Home jumps to start
 * End jumps to end
+* 0-9 jumps to the 0-90% point
