@@ -21,20 +21,32 @@ function reactiveResize() {
 
 // setup key-binds
 function bindControls() {
+	// seek behavior based on YouTube's player behavior
+	// if playing or paused, it jumps without switching
+	// if at the end, it resumes playing
+	function seek(timestamp) {
+		const oldTime = video.currentTime;
+		video.currentTime = timestamp;
+
+		if(oldTime === video.duration) {
+			video.play();
+		}
+	}
+
 	// adding keyboard controls
 	document.addEventListener('keydown', function(event) {
 		switch(event.key) {
 			case 'ArrowLeft':
-				video.currentTime -= 5;
+				seek(video.currentTime - 5);
 				break;
 			case 'ArrowRight':
-				video.currentTime += 5;
+				seek(video.currentTime + 5);
 				break;
 			case 'j':
-				video.currentTime -= 10;
+				seek(video.currentTime - 10);
 				break;
 			case 'l':
-				video.currentTime += 10;
+				seek(video.currentTime + 10);
 				break;
 			case 'k':
 				if(video.paused) {
@@ -61,15 +73,7 @@ function bindControls() {
 			case '9':
 				const pressed = event.key.charCodeAt(0) - 48;
 				if(pressed >= 0 && pressed <= 9) {
-					const oldTime = video.currentTime;
-					video.currentTime = video.duration * pressed / 10;
-					
-					// based on YouTube's behavior when jumping to a percentage
-					// if playing or paused, it jumps without switching
-					// if at the end, it resumes playing
-					if(oldTime === video.duration) {
-						video.play();
-					}
+					seek(video.duration * pressed / 10);
 				}
 				break;
 		}
