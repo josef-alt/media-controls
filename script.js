@@ -61,7 +61,15 @@ function bindControls() {
 			case '9':
 				const pressed = event.key.charCodeAt(0) - 48;
 				if(pressed >= 0 && pressed <= 9) {
+					const oldTime = video.currentTime;
 					video.currentTime = video.duration * pressed / 10;
+					
+					// based on YouTube's behavior when jumping to a percentage
+					// if playing or paused, it jumps without switching
+					// if at the end, it resumes playing
+					if(oldTime === video.duration) {
+						video.play();
+					}
 				}
 				break;
 		}
